@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Reflorestar é Viver (RS)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* RESET BÁSICO */
     * {
@@ -13,7 +14,7 @@
     }
 
     body {
-      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      font-family: "Roboto", Arial, sans-serif;
       background: #f5f9f1;
       color: #2f3e1e;
       line-height: 1.6;
@@ -42,21 +43,29 @@
       top: 0;
       z-index: 1000;
     }
+
     header h2 {
       margin: 0;
       font-size: 1.4em;
     }
+
+    header nav {
+      display: flex;
+      gap: 20px;
+    }
+
     header nav a {
-      margin: 0 12px;
       text-decoration: none;
       color: #fff;
       font-weight: 500;
       transition: color .3s;
     }
+
     header nav a:hover {
       color: #c9e49d;
     }
-    header button {
+
+    header .btn-apoie {
       background: #9fbf67;
       color: #fff;
       padding: 10px 22px;
@@ -66,9 +75,43 @@
       font-weight: bold;
       transition: all .3s;
     }
-    header button:hover {
+
+    header .btn-apoie:hover {
       background: #7da34a;
       transform: scale(1.05);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 2px solid #9fbf67;
+      border-radius: 8px;
+      color: white;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #2f3e1e;
+        padding: 20px;
+      }
+
+      header nav.show {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: block;
+      }
     }
 
     /* BANNER */
@@ -76,23 +119,24 @@
       position: relative;
       text-align: center;
     }
+
     .banner img {
       width: 100%;
       max-height: 600px;
       object-fit: cover;
-      display: block;
       filter: brightness(85%);
     }
+
     .banner .texto {
       position: absolute;
       left: 50%;
       bottom: 40px;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.55);
+      background: rgba(0,0,0,0.6);
       color: #fff;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-size: 1.6em;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-size: 1.8em;
       font-weight: bold;
       letter-spacing: 1px;
     }
@@ -103,12 +147,14 @@
       max-width: 1200px;
       margin: auto;
     }
+
     .section h2 {
       text-align: center;
       font-size: 2.2em;
       margin-bottom: 40px;
       position: relative;
     }
+
     .section h2::after {
       content: "";
       display: block;
@@ -125,6 +171,7 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 24px;
     }
+
     .objetivo {
       background: #fff;
       color: #2f3e1e;
@@ -133,9 +180,11 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       transition: transform .3s;
     }
+
     .objetivo:hover {
       transform: translateY(-5px);
     }
+
     .objetivo h3 {
       color: #4d6e34;
       margin-bottom: 10px;
@@ -145,6 +194,7 @@
     .arvores {
       background: #eef5e5;
     }
+
     .arvore {
       background: #fff;
       padding: 20px;
@@ -153,11 +203,15 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.12);
       transition: transform .3s;
     }
+
     .arvore:hover {
       transform: translateY(-5px);
     }
+
     .arvore img {
       width: 100%;
+      height: 220px;
+      object-fit: cover;
       border-radius: 8px;
       margin-top: 12px;
     }
@@ -171,11 +225,14 @@
       margin: 50px auto;
       max-width: 1000px;
     }
+
     .dicas ol {
-      padding-left: 20px;
+      padding-left: 24px;
     }
+
     .dicas li {
       margin-bottom: 16px;
+      font-size: 1.05em;
     }
 
     /* RODAPÉ VERDE */
@@ -185,15 +242,19 @@
       background: #d8e8b6;
       border-top: 3px solid #9fbf67;
     }
-    .rodape h2 {
-      margin-bottom: 20px;
+
+    .rodape img {
+      width: 100%;
+      max-width: 400px;
+      margin: 20px auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* PESQUISA */
     .pesquisa-container {
       margin-top: 30px;
-      text-align: center;
     }
+
     .pesquisa-container input {
       width: 65%;
       max-width: 480px;
@@ -204,10 +265,12 @@
       font-size: 1em;
       transition: 0.3s;
     }
+
     .pesquisa-container input:focus {
       border-color: #4d6e34;
       box-shadow: 0 0 8px rgba(77, 110, 52, 0.3);
     }
+
     .pesquisa-container button {
       margin-left: 12px;
       padding: 14px 26px;
@@ -219,6 +282,7 @@
       font-weight: bold;
       transition: all .3s;
     }
+
     .pesquisa-container button:hover {
       background: #4d6e34;
       transform: scale(1.05);
@@ -227,7 +291,7 @@
     /* FOOTER */
     footer {
       background: #111;
-      color: #fff;
+      color: #aaa;
       padding: 18px;
       text-align: center;
       font-size: .9em;
@@ -236,100 +300,117 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header>
     <h2>🌱 Reflorestar é Viver (RS)</h2>
-    <nav>
+    <nav id="nav-menu">
       <a href="#">HOME</a>
-      <a href="#">Objetivos</a>
-      <a href="#">Árvores nativas</a>
-      <a href="#">Dicas</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#arvores">Árvores</a>
+      <a href="#dicas">Dicas</a>
     </nav>
-    <button>APOIE</button>
+    <button class="btn-apoie">APOIE</button>
+    <button class="menu-btn" id="menu-btn">☰</button>
   </header>
 
   <!-- BANNER -->
   <div class="banner">
-    <img src="f85bc6a4-f1ad-4124-b4f1-328cc24cc3b3.png" alt="Pessoas plantando árvores">
+    <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Pessoas plantando mudas em solo fértil">
     <div class="texto">Plante e renove</div>
   </div>
 
-  <!-- SEÇÃO OBJETIVOS -->
-  <section class="section">
+  <!-- OBJETIVOS -->
+  <section class="section" id="objetivos">
     <h2>Objetivos</h2>
     <div class="objetivos">
       <div class="objetivo">
         <h3>Nossa Missão</h3>
-        <p>"Reflorestar é Viver (RS)" tem como missão restaurar áreas degradadas através do plantio de árvores nativas...</p>
+        <p>"Reflorestar é Viver (RS)" tem como missão restaurar áreas degradadas através do plantio de árvores nativas, promovendo biodiversidade e equilíbrio ambiental.</p>
       </div>
       <div class="objetivo">
         <h3>Por que Árvores Nativas?</h3>
-        <p>As árvores nativas são a essência dos ecossistemas brasileiros. Elas abrigam fauna, protegem o solo...</p>
+        <p>As árvores nativas são a essência dos ecossistemas brasileiros. Elas abrigam fauna, protegem o solo, regulam o clima e mantêm a identidade cultural do Sul.</p>
       </div>
       <div class="objetivo">
-        <h3>Impacto de que Transforma</h3>
-        <p>Com o plantio de árvores nativas, o "Reflorestar é Viver (RS)" transforma paisagens degradadas...</p>
+        <h3>Impacto que Transforma</h3>
+        <p>Com o plantio de árvores nativas, transformamos paisagens degradadas em florestas vivas, sequestrando carbono e restaurando nascentes.</p>
       </div>
       <div class="objetivo">
         <h3>Participe do Nosso Sonho</h3>
-        <p>Você pode ser parte da mudança! No "Reflorestar é Viver (RS)" convidamos voluntários, doadores...</p>
+        <p>Você pode ser parte da mudança! Convidamos voluntários, doadores e empresas a se unirem ao "Reflorestar é Viver (RS)".</p>
       </div>
     </div>
   </section>
 
-  <!-- ÁRVORES -->
-  <section class="arvores section">
+  <!-- ÁRVORES NATIVAS -->
+  <section class="arvores section" id="arvores">
     <h2>Árvores Nativas do Sul</h2>
 
     <div class="arvore">
       <h3>ARAUCÁRIA</h3>
       <p><strong>Nome científico:</strong> Araucaria angustifolia · <strong>Nativa:</strong> Rio Grande do Sul</p>
-      <img src="Araucária.jpg" alt="Araucária">
+      <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Araucária majestosa em paisagem de campos">
     </div>
 
     <div class="arvore">
       <h3>BUTIAZEIRO</h3>
-      <p><strong>Nome científico:</strong> Butia odorata · <strong>Nativa:</strong> Minas Gerais ao RS, Argentina, Paraguai e Uruguai</p>
-      <img src="butiazeiro.png.jpg" alt="Butiazeiro">
+      <p><strong>Nome científico:</strong> Butia odorata · <strong>Nativa:</strong> MG ao RS, Argentina, Paraguai e Uruguai</p>
+      <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Butiazeiro com frutos amarelos">
     </div>
 
     <div class="arvore">
       <h3>IPÊ AMARELO</h3>
       <p><strong>Nome científico:</strong> Handroanthus albus · <strong>Nativa:</strong> Mata Atlântica, Cerrado e Amazônia</p>
-      <img src="ipe-amarelo.png.jpg" alt="Ipê Amarelo">
+      <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Ipê amare em flor com flores douradas">
     </div>
 
     <div class="arvore">
       <h3>JERIVÁ</h3>
       <p><strong>Nome científico:</strong> Syagrus romanzoffiana · <strong>Nativa:</strong> Mata Atlântica, Uruguai, Paraguai e Argentina</p>
-      <img src="jeriva.png.jpg" alt="Jerivá">
+      <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Palmeira jerivá em grupo">
     </div>
   </section>
 
   <!-- DICAS -->
-  <section class="dicas section">
-    <h2>Dicas de como ajudar</h2>
+  <section class="dicas section" id="dicas">
+    <h2>Dicas de Como Ajudar</h2>
     <ol>
-      <li>Participe de mutirões de plantio: Pesquise eventos de reflorestamento em sua região...</li>
-      <li>Adote uma muda: Algumas organizações permitem que você "adote" ou doe para o plantio de uma árvore nativa...</li>
-      <li>Reduza seu impacto ambiental: Economize água, reduza o uso de descartáveis...</li>
-      <li>Divulgue a causa: Use redes sociais para compartilhar informações sobre projetos de reflorestamento...</li>
+      <li><strong>Participe de mutirões de plantio:</strong> Pesquise eventos de reflorestamento em sua região ou organize um com amigos.</li>
+      <li><strong>Adote uma muda:</strong> Algumas organizações permitem que você "adote" ou doe para o plantio de uma árvore nativa.</li>
+      <li><strong>Reduza seu impacto ambiental:</strong> Economize água, reduza o uso de descartáveis e prefira transporte sustentável.</li>
+      <li><strong>Divulgue a causa:</strong> Use redes sociais para compartilhar informações sobre projetos de reflorestamento.</li>
     </ol>
   </section>
 
-  <!-- ÁREA DE PESQUISA -->
+  <!-- RODAPÉ VERDE -->
   <div class="rodape">
     <h2>Por um Futuro Mais Verde</h2>
-    <p>Adotar práticas sustentáveis no dia a dia não é só uma escolha, mas um compromisso com o planeta e as futuras gerações...</p>
-    
+    <p>Adotar práticas sustentáveis no dia a dia não é só uma escolha, mas um compromisso com o planeta e as futuras gerações.</p>
+    <img src="https://i.ibb.co.com/0jK9j7D/image.png" alt="Criança segurando muda com esperança">
     <div class="pesquisa-container">
-      <input type="text" placeholder="Pesquise no site..." />
-      <button>Pesquisar</button>
+      <input type="text" id="pesquisa" placeholder="Pesquise no site..." />
+      <button onclick="pesquisar()">Pesquisar</button>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer>
-    <p>@nicolas__advm</p>
+    <p>© 2025 Reflorestar é Viver (RS) | Desenvolvido por @nicolas__advm</p>
   </footer>
 
+  <script>
+    // Menu mobile
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-menu').classList.toggle('show');
+    });
+
+    // Pesquisa simples
+    function pesquisar() {
+      const termo = document.getElementById('pesquisa').value.toLowerCase();
+      if (termo) {
+        alert(`Você pesquisou por: "${termo}". Em breve, resultados aparecerão aqui!`);
+      }
+    }
+  </script>
 </body>
 </html>
